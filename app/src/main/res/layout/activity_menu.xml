@@ -7,6 +7,21 @@
     android:background="@drawable/mundo2"
     tools:context=".menu">
 
+    <ImageButton
+        android:id="@+id/imageButton10"
+        android:layout_width="341dp"
+        android:layout_height="66dp"
+        android:backgroundTint="#2D4D59"
+        android:tint="#F4F1F1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.557"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.629"
+        app:srcCompat="@android:drawable/ic_media_play"
+        tools:ignore="MissingConstraints" />
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="339dp"
@@ -43,24 +58,10 @@
         android:layout_height="58dp"
         android:layout_marginBottom="8dp"
         android:backgroundTint="#2D4D59"
-        android:text="Creadora"
+        android:text="Quien lo creo"
         android:textSize="27sp"
         app:layout_constraintBottom_toTopOf="@+id/imageButton5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="337dp"
-        android:layout_height="57dp"
-        android:layout_marginBottom="4dp"
-        android:backgroundTint="#2D4D59"
-        android:text="Informacion"
-        android:textSize="27sp"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.472"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
@@ -78,17 +79,18 @@
         tools:ignore="MissingConstraints" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
-        android:layout_width="331dp"
-        android:layout_height="61dp"
+        android:id="@+id/imageButton6"
+        android:layout_width="337dp"
+        android:layout_height="64dp"
         android:backgroundTint="#2D4D59"
-        android:tint="#F4F1F1"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
+        android:onClick="informacion_usuario"
+        android:tint="#FAF9F9"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView3"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@android:drawable/ic_media_play"
-        tools:ignore="MissingConstraints" />
+        app:srcCompat="?android:attr/actionModeFindDrawable" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

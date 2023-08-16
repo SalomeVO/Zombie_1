@@ -52,7 +52,7 @@ public class login extends AppCompatActivity {
         }
     }
 
-//Funcion para el boton de regreso al menu de inicio
+    //Funcion para el boton de regreso al menu de inicio
     public void regresar_inico(View view){
         Intent intent = null;
         intent = new Intent(this, MainActivity.class);
