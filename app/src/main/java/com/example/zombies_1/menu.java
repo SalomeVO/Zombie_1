@@ -13,14 +13,11 @@ public class menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
     }
-
-    //Funcion para el boton de regreso al menu de inicio
-    public void regresar_inico(View view){
-        Intent intent = null;
-        intent = new Intent(this, MainActivity.class);
-
-        if(intent!=null){
-            startActivity(intent);
-        }
+    public void cerrarSesion(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        // Limpia el historial de actividades
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish(); // Cierra la actividad actual
     }
 }
