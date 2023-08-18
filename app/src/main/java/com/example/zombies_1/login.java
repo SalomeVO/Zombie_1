@@ -3,27 +3,39 @@ package com.example.zombies_1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 
 //Importar clases
 import android.content.SharedPreferences;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class login extends AppCompatActivity {
 
     //Declaracion de variables
     private EditText editTextLoginEmail, editTextLoginPassword;
+    private TextView textViewIncioSesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //Se ubica el archivo del tipo de letra
+        String ubicacion = "fuentes/zombie.TTF";
+        Typeface Tf = Typeface.createFromAsset(login.this.getAssets(),ubicacion);
+
+
         // Relacionar las variables con los elementos de la interfaz
+        textViewIncioSesion = findViewById(R.id.textView);
         editTextLoginEmail = findViewById(R.id.editTextTextEmailAddress);
         editTextLoginPassword = findViewById(R.id.editTextTextPassword);
+
+        //Cambio de fuente de letra
+        textViewIncioSesion.setTypeface(Tf);
     }
 
     // Función para el botón de inicio de sesión

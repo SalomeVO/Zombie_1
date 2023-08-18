@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,17 +24,26 @@ public class Register extends AppCompatActivity {
     private EditText  editTextEmail, editTextPassword, editTextName;
     private ImageButton buttonRegister;
     private int startingPoints = 0; // Puntos iniciales
+    private TextView textViewRegistro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        //Se ubica el archivo del tipo de letra
+        String ubicacion = "fuentes/zombie.TTF";
+        Typeface Tf = Typeface.createFromAsset(Register.this.getAssets(),ubicacion);
+
         //Relacionamos las variables declaradas con los id de la interfaz
+        textViewRegistro = findViewById(R.id.textView2);
         editTextEmail = findViewById(R.id.editTextTextEmailAddress4);
         editTextPassword = findViewById(R.id.editTextTextPassword2);
         editTextName = findViewById(R.id.editTextText2);
         buttonRegister = findViewById(R.id.imageButton3);
+
+        //Cambio de fuente de letra
+        textViewRegistro.setTypeface(Tf);
 
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override

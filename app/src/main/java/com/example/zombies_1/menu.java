@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -19,8 +20,17 @@ public class menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        textViewUserName = findViewById(R.id.textView3); //Los ID de las vista
+        //Se ubica el archivo del tipo de letra
+        String ubicacion = "fuentes/zombie.TTF";
+        Typeface Tf = Typeface.createFromAsset(menu.this.getAssets(),ubicacion);
+
+        //Los ID de las vista
+        textViewUserName = findViewById(R.id.textView3);
         textViewUserPoints = findViewById(R.id.textView7);
+
+        //Cambio de fuente de letra
+        textViewUserName.setTypeface(Tf);
+        textViewUserPoints.setTypeface(Tf);
 
         // Recuperar la información del usuario almacenada en SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);

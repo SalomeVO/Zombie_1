@@ -3,6 +3,7 @@ package com.example.zombies_1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 //Importar clases
@@ -12,10 +13,37 @@ import android.widget.TextView;
 
 public class Informacion extends AppCompatActivity {
 
+    //Declaramos variables
+    private TextView textViewEmail;
+    private TextView textViewPassword;
+    private TextView textViewNome;
+    private TextView textViewPoints;
+    private TextView textViewFecha;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_informacion);
+
+        //Se ubica el archivo del tipo de letra
+        String ubicacion = "fuentes/zombie.TTF";
+        Typeface Tf = Typeface.createFromAsset(Informacion.this.getAssets(),ubicacion);
+
+        //Los ID de las vista
+        textViewEmail = findViewById(R.id.textView5);
+        textViewPassword = findViewById(R.id.textView6);
+        textViewNome = findViewById(R.id.textView9);
+        textViewPoints = findViewById(R.id.textView10);
+        textViewFecha = findViewById(R.id.textView8);
+
+
+        //Cambio de fuente de letra
+        textViewEmail.setTypeface(Tf);
+        textViewPassword.setTypeface(Tf);
+        textViewNome.setTypeface(Tf);
+        textViewPoints.setTypeface(Tf);
+        textViewFecha.setTypeface(Tf);
+
 
         // Acceder a los datos almacenados en SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);

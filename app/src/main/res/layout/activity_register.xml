@@ -53,7 +53,7 @@
         android:layout_height="75dp"
         android:gravity="center"
         android:text="Resgitrarse"
-        android:textColor="#E5E8CC"
+        android:textColor="#FFFFFF"
         android:textSize="60sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
