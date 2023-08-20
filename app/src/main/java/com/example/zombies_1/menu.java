@@ -8,6 +8,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class menu extends AppCompatActivity {
 
@@ -39,9 +40,10 @@ public class menu extends AppCompatActivity {
 
         // Mostrar la información en los TextViews correspondientes
         textViewUserName.setText(""+userName);
-        textViewUserPoints.setText(""+userPoints);
+        textViewUserPoints.setText("" + userPoints);
 
     }
+
     public void cerrarSesion(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
@@ -56,5 +58,11 @@ public class menu extends AppCompatActivity {
         if(intent!=null){
             startActivity(intent);
         }
+    }
+
+    // Función para el botón de jugar
+    public void jugar(View view) {
+        Intent intent = new Intent(this, Escenario_juego.class);
+        startActivity(intent);
     }
 }

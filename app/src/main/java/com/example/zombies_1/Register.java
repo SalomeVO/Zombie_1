@@ -57,14 +57,18 @@ public class Register extends AppCompatActivity {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 String currentDate = sdf.format(new Date());
 
-                // Guardar la información de registro en SharedPreferences
+                // Obtener el valor de zombieKillCount desde las preferencias compartidas
                 SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
+                int zombieKillCount = sharedPreferences.getInt("zombieKillCount", 0);
+
+
+                // Crear una nueva instancia de preferencias compartidas para guardar la información de registro
+                SharedPreferences.Editor editor = getSharedPreferences("UserData", MODE_PRIVATE).edit();
                 editor.putString("email", email);
                 editor.putString("password", password);
                 editor.putString("name", name);
                 editor.putString("registrationDate", currentDate);
-                editor.putInt("points", startingPoints);
+                editor.putInt("points", zombieKillCount); // Usar el valor de zombieKillCount obtenido de las preferencias compartidas
                 editor.apply();
 
                 // Construir el mensaje de registro exitoso
