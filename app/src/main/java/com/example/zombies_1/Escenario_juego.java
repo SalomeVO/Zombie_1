@@ -5,6 +5,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -20,10 +21,17 @@ public class Escenario_juego extends AppCompatActivity {
 
     // Variables para el juego
     private int zombieKillCount = 0;
-    private int gameDurationInSeconds = 20;
+
+    //Se establece el tiempo que durara el juego
+    private int gameDurationInSeconds = 25;
     private CountDownTimer countDownTimer;
     private TextView timerTextView;
     private TextView zombieCountTextView;
+    private TextView spotTextView;
+    private TextView spot_2TextView;
+    private TextView sTextView;
+
+
     private boolean isAnimating = false;
     private boolean isZombieTumba = false;
 
@@ -32,9 +40,23 @@ public class Escenario_juego extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_escenario_juego);
 
+        //Se ubica el archivo del tipo de letra
+        String ubicacion = "fuentes/zombie.TTF";
+        Typeface Tf = Typeface.createFromAsset(Escenario_juego.this.getAssets(),ubicacion);
+
         // Inicialización de vistas
         timerTextView = findViewById(R.id.textView12);//conometro
         zombieCountTextView = findViewById(R.id.textView4);//conteo
+        spotTextView = findViewById(R.id.textView14);//los dos puntos de zombies muertos
+        spot_2TextView = findViewById(R.id.textView15);//la s de segundos
+        sTextView = findViewById(R.id.textView16);//los dos puntos del cronometro
+
+        //Cambio de fuente de letra
+        timerTextView.setTypeface(Tf);
+        zombieCountTextView.setTypeface(Tf);
+        spotTextView.setTypeface(Tf);
+        spot_2TextView.setTypeface(Tf);
+        sTextView.setTypeface(Tf);
 
         // Configuración del clic en la imagen del zombie
         ImageView zombieImageView = findViewById(R.id.imageView8);
@@ -95,7 +117,7 @@ public class Escenario_juego extends AppCompatActivity {
         // Iniciar la animación
         imageView.startAnimation(moveAnimation);
 
-        // Restaurar la imagen después de un segundo
+        // Restaurar la imagen determinando el tiempo
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -105,7 +127,7 @@ public class Escenario_juego extends AppCompatActivity {
                     isAnimating = false;
                 }
             }
-        }, 1000);
+        }, 100);
     }
 
     private void actualizarUIRecuentoZombies() {
