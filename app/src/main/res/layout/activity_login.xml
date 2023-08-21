@@ -21,19 +21,7 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.244" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="154dp"
-        android:layout_height="146dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.634"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.642"
-        app:srcCompat="@drawable/zombie" />
+        app:layout_constraintVertical_bias="0.158" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -41,17 +29,43 @@
         android:layout_height="51dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintHorizontal_bias="0.955"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.502"
+        app:layout_constraintVertical_bias="0.405"
         app:srcCompat="@android:drawable/sym_action_email"
         app:tint="#FFEB3B" />
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="48dp"
+        android:layout_height="51dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55"
+        app:srcCompat="@android:drawable/ic_lock_idle_lock"
+        app:tint="#EAE0C3"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="235dp"
+        android:layout_height="224dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.658"
+        app:srcCompat="@drawable/zombie" />
+
     <EditText
         android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="315dp"
-        android:layout_height="50dp"
+        android:layout_width="401dp"
+        android:layout_height="58dp"
         android:layout_marginStart="68dp"
         android:backgroundTint="#FAF8F8"
         android:ems="10"
@@ -62,27 +76,15 @@
         android:textSize="27sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="48dp"
-        android:layout_height="51dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.62"
-        app:srcCompat="@android:drawable/ic_lock_idle_lock"
-        app:tint="#CDB7B7"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.41" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:layout_width="317dp"
-        android:layout_height="50dp"
+        android:layout_width="395dp"
+        android:layout_height="68dp"
         android:backgroundTint="#F6F0F0"
         android:ems="10"
         android:hint="Contraseña"
@@ -92,10 +94,10 @@
         android:textSize="27sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.957"
+        app:layout_constraintHorizontal_bias="0.978"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.621" />
+        app:layout_constraintVertical_bias="0.549" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -103,25 +105,27 @@
         android:layout_height="59dp"
         android:backgroundTint="#137C72"
         android:onClick="iniciarSesion"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.754"
+        app:layout_constraintVertical_bias="0.796"
         app:srcCompat="@android:drawable/ic_media_play" />
 
     <ImageButton
         android:id="@+id/imageButton2"
-        android:layout_width="185dp"
+        android:layout_width="182dp"
         android:layout_height="62dp"
         android:backgroundTint="#137C72"
         android:onClick="regresar_inico"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.871"
-        app:srcCompat="@android:drawable/ic_menu_revert" />
+        app:layout_constraintVertical_bias="0.887"
+        app:srcCompat="@android:drawable/ic_delete" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

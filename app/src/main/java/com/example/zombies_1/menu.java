@@ -40,7 +40,7 @@ public class menu extends AppCompatActivity {
 
         // Mostrar la información en los TextViews correspondientes
         textViewUserName.setText(""+userName);
-        textViewUserPoints.setText("" + userPoints);
+        textViewUserPoints.setText(":" + userPoints);
 
     }
 
