@@ -65,4 +65,10 @@ public class menu extends AppCompatActivity {
         Intent intent = new Intent(this, Escenario_juego.class);
         startActivity(intent);
     }
+
+    // Función para el botón de datelles
+    public void detalles(View view) {
+        Intent intent = new Intent(this, Detalles.class);
+        startActivity(intent);
+    }
 }

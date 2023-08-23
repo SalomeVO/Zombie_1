@@ -107,6 +107,7 @@
             android:layout_width="337dp"
             android:layout_height="63dp"
             android:backgroundTint="#2D4D59"
+            android:onClick="detalles"
             app:srcCompat="@android:drawable/ic_dialog_info"
             app:tint="#FFEB3B" />
 
