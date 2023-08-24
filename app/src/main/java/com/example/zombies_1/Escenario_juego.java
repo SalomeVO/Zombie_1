@@ -89,9 +89,13 @@ public class Escenario_juego extends AppCompatActivity {
         // Cargar la animación de movimiento desde el archivo XML
         Animation moveAnimation = AnimationUtils.loadAnimation(this, R.anim.move_zombie);
 
+        //Valor de la pantalla
+        int maxWidth = getResources().getDisplayMetrics().widthPixels;
+        int maxHeight = getResources().getDisplayMetrics().heightPixels;
+
         // Generar posiciones aleatorias para la imagen en la pantalla
-        int randomX = new Random().nextInt(imageView.getWidth());
-        int randomY = new Random().nextInt(imageView.getHeight());
+        int randomX = new Random().nextInt(maxWidth) * (new Random().nextBoolean() ? 1 : -1);
+        int randomY = new Random().nextInt(maxHeight) * (new Random().nextBoolean() ? 1 : -1);
 
         // Cambiar la imagen del zombie a tumba o viceversa
         imageView.setImageResource(isZombieTumba ? R.drawable.zombie : R.drawable.tumba);
@@ -130,6 +134,7 @@ public class Escenario_juego extends AppCompatActivity {
         }, 100);
     }
 
+    //Para el recuento de los zombies
     private void actualizarUIRecuentoZombies() {
         zombieCountTextView.setText(String.valueOf(zombieKillCount));
     }

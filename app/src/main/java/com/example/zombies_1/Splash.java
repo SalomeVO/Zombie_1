@@ -13,7 +13,7 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        int duracion_splash = 900; //segundos
+        int duracion_splash = 500; //segundos
 
         //Hander: es un temporizador que permite ejecutar una instruccion en un tiempo determinado
         new Handler().postDelayed(new Runnable() {

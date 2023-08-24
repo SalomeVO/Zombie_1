@@ -46,6 +46,7 @@
         android:backgroundTint="#694573"
         android:onClick="registarse"
         android:text="Registrarse"
+        android:textColor="#FFFFFF"
         android:textSize="27sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"

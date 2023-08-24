@@ -51,12 +51,12 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="354dp"
-        android:layout_height="75dp"
+        android:layout_width="310dp"
+        android:layout_height="114dp"
         android:gravity="center"
         android:text="Resgitrarse"
         android:textColor="#FFFFFF"
-        android:textSize="60sp"
+        android:textSize="55sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,8 +67,8 @@
 
     <EditText
         android:id="@+id/editTextTextEmailAddress4"
-        android:layout_width="362dp"
-        android:layout_height="61dp"
+        android:layout_width="335dp"
+        android:layout_height="62dp"
         android:layout_marginTop="88dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
@@ -80,16 +80,15 @@
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.692"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.036" />
+        app:layout_constraintVertical_bias="0.03" />
 
     <EditText
         android:id="@+id/editTextTextPassword2"
-        android:layout_width="362dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="331dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:hint="Contraseña"
@@ -99,15 +98,14 @@
         android:textSize="27sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.673"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress4" />
 
     <EditText
         android:id="@+id/editTextText2"
-        android:layout_width="362dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="335dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="12dp"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:hint="Nombre de Usuario"
@@ -117,7 +115,7 @@
         android:textSize="27sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.692"
+        app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
 

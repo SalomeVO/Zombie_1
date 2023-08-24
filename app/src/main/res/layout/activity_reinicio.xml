@@ -9,7 +9,7 @@
 
     <ImageButton
         android:id="@+id/imageButton7"
-        android:layout_width="341dp"
+        android:layout_width="314dp"
         android:layout_height="66dp"
         android:backgroundTint="#2D4D59"
         android:onClick="reiniciarJuego"
@@ -41,8 +41,8 @@
 
     <ImageButton
         android:id="@+id/imageButton11"
-        android:layout_width="341dp"
-        android:layout_height="63dp"
+        android:layout_width="314dp"
+        android:layout_height="66dp"
         android:backgroundTint="#2D4D59"
         android:onClick="regresarAlMenu"
         android:scaleType="fitCenter"
