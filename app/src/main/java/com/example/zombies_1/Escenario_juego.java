@@ -90,8 +90,10 @@ public class Escenario_juego extends AppCompatActivity {
         Animation moveAnimation = AnimationUtils.loadAnimation(this, R.anim.move_zombie);
 
         //Valor de la pantalla
-        int maxWidth = getResources().getDisplayMetrics().widthPixels;
-        int maxHeight = getResources().getDisplayMetrics().heightPixels;
+        int desiredWidthPx = 0;
+        int maxWidth = getResources().getDisplayMetrics().widthPixels - desiredWidthPx;
+        int desiredHeightPx = 0;
+        int maxHeight = getResources().getDisplayMetrics().heightPixels - desiredHeightPx;
 
         // Generar posiciones aleatorias para la imagen en la pantalla
         int randomX = new Random().nextInt(maxWidth) * (new Random().nextBoolean() ? 1 : -1);

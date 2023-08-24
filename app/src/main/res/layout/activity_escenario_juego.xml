@@ -15,24 +15,24 @@
         app:srcCompat="@drawable/zombie"
         tools:ignore="NotSibling" />
 
+    <!--Reloj animado-->
+
+
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="42dp"
-        android:layout_height="45dp"
+        android:layout_width="64dp"
+        android:layout_height="54dp"
         android:gravity="center"
-        android:text="0"
+        android:text="00"
         android:textColor="#FBFBFB"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.314"
+        app:layout_constraintHorizontal_bias="0.334"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.049" />
-
-    <!--Reloj animado-->
-
+        app:layout_constraintVertical_bias="0.035" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieAnimationView"

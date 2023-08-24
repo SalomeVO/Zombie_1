@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 
 //Importacion de clase
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -49,9 +48,15 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Obtener valores ingresados por el usuario
-                String email = editTextEmail.getText().toString();
-                String password = editTextPassword.getText().toString();
-                String name = editTextName.getText().toString();
+                String email = editTextEmail.getText().toString().trim(); //.trim() se agrega para eliminar los espacios en blanco
+                String password = editTextPassword.getText().toString().trim();
+                String name = editTextName.getText().toString().trim();
+
+                // Verificar si los campos están vacíos
+                if (email.isEmpty() || password.isEmpty() || name.isEmpty()) {
+                    Toast.makeText(Register.this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 // Obtener la fecha actual
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
