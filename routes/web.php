@@ -18,8 +18,9 @@ Route::get('/', function () {
     return view('UserZombie/viewZombie');
 });
 
+//Visualizar la lista de usuario
+Route::get('/', [UserSombiesController::class, 'index'])->name('index');
 //Agregar usuario
 Route::get('/formUser', [UserSombiesController::class, 'createZom'])->name('createZom');
-
 //Guardar usuario
 Route::post('/saveUser', [UserSombiesController::class, 'saveZom'])->name('zombie.saveZom');

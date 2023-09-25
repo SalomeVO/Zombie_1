@@ -10,7 +10,8 @@ class UserSombiesController extends Controller
 
     public function index()
     {
-        //
+        $user = user_sombies::all();//el numero de filas
+        return view('UserZombie.viewZombie', compact("user"));
     }
 
 
@@ -21,17 +22,19 @@ class UserSombiesController extends Controller
 
     public function saveZom(Request $request)
     {
+        $media = request()->except('_token');
+
         $user = $this->validate($request, [
             "name"      => "required",
             "email"    => "required|string|email",
             "password"    => "required",
-            "image"    => "required",
+            "image"    => "required|image",
 
         ]);
 
         //Guardar la foto
         if($request->hasFile('image')){
-            $user['image']=$request->file("image")->store('uploads', 'public');
+            $media['image']=$request->file("image")->store('uploads', 'public');
         }
 
         user_sombies::create([
@@ -40,10 +43,10 @@ class UserSombiesController extends Controller
             "email"    => $user["email"],
             "password"   => $user["password"],
             "dateZ"   => now(), //para la fecha
-            "image"   => $user["image"],
+            "image"   => $media["image"],
         ]);
 
-        return redirect('/')->with('Guardado', "Usuario Guardado");
+        return redirect('/')->with('usuarioGuardado', "Guardado");
     }
 
     public function edit(user_sombies $user_sombies)

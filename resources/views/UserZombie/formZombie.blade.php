@@ -19,7 +19,7 @@
             @endif
 
             <div class="card">
-                <form action=" {{ route('zombie.saveZom') }}" method="POST">
+                <form action=" {{ route('zombie.saveZom') }}" method="POST" enctype="multipart/form-data" >
                     @csrf
 
                     <div class=" card-header text-center" style="background-color: #2A738C">

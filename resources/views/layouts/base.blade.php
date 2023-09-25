@@ -24,11 +24,14 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body style="background-color: #E0FAF8">
 
     <div class="container ">
         @yield('content') <!-- es para que se herede en todas las plantillas-->
     </div>
+
+    <script src="{{asset('js/app.js')}}"></script>
+    @yield('js')<!--¨Para mostrar las alerts-->
 
 </body>
 </html>
