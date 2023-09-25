@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserSombiesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('UserZombie/viewZombie');
 });
+
+//Agregar usuario
+Route::get('/formUser', [UserSombiesController::class, 'createZom'])->name('createZom');
+
+//Guardar usuario
+Route::post('/saveUser', [UserSombiesController::class, 'saveZom'])->name('zombie.saveZom');

@@ -9,7 +9,7 @@ class user_sombies extends Model
 {
     use HasFactory;
 
-    public $table='sombies';
+    public $table='user_sombies';
 
     public $timestamps=false;
     protected $fillable=[
