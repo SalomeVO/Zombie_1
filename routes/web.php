@@ -19,8 +19,12 @@ Route::get('/', function () {
 });
 
 //Visualizar la lista de usuario
-Route::get('/', [UserSombiesController::class, 'index'])->name('index');
+Route::get('/home', [UserSombiesController::class, 'index'])->name('index');
 //Agregar usuario
 Route::get('/formUser', [UserSombiesController::class, 'createZom'])->name('createZom');
 //Guardar usuario
 Route::post('/saveUser', [UserSombiesController::class, 'saveZom'])->name('zombie.saveZom');
+//Formulario de editar
+Route::get('/edit/{id}',  [UserSombiesController::class, 'editZom'])->name('editZom');
+//Guardar edicion
+Route::patch('/post/{id}',[UserSombiesController::class, 'updateZom'])->name('updateZom');

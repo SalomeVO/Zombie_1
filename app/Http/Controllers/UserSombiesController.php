@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\user_sombies;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UserSombiesController extends Controller
 {
@@ -46,17 +47,31 @@ class UserSombiesController extends Controller
             "image"   => $media["image"],
         ]);
 
-        return redirect('/')->with('usuarioGuardado', "Guardado");
+        return redirect('/home')->with('usuarioGuardado', "Guardado");
     }
 
-    public function edit(user_sombies $user_sombies)
+    public function editZom($id)
     {
-        //
+        $user = user_sombies::findOrFail($id);
+        return view('UserZombie.editZombie', compact('user'));
     }
 
-    public function update(Request $request, user_sombies $user_sombies)
+    public function updateZom(Request $request,$id)
     {
-        //
+        $dato = request()->except((['_token', '_method']));
+
+        //Editar foto
+        if($request->hasFile('image')){
+
+            $user= user_sombies::findOrFail($id);
+            Storage::delete('public/'.$user->image);
+            $dato['image']=$request->file("image")->store('uploads', 'public');
+        }
+
+        user_sombies::where('id', '=', $id)->update($dato);
+
+        return redirect('/home')->with('usuarioModificado', 'Modificado');
+
     }
 
     public function destroy(user_sombies $user_sombies)

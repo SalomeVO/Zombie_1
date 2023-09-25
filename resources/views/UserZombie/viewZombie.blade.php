@@ -42,7 +42,15 @@
                             <td>{{$users->dateZ}}</td>
 
                             <td>
+                                <div class="btn btn-group">
+                                    <a href="{{route('editZom', $users->id)}}" class="btn btn-outline-info mb-2 me-2 m-1" style="border-radius: 20%">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </a>
+                                    <form>
 
+                                    </form>
+
+                                </div>
                             </td>
                         </tr>
                     @endforeach
@@ -71,4 +79,17 @@
             })
         </script>
     @endif
+
+    <!--Mensaje de Modificacion-->
+    @if(session('usuarioModificado')=='Modificado')
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Empleado Modificado',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
+    @endif
+
 @endsection
