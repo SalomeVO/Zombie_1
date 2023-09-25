@@ -99,4 +99,14 @@ class UserSombiesController extends Controller
         $user =user_sombies::all();
         return $user;
     }
+
+    //api-para editar los usuarios
+    public function editUserApi($id, Request $request)
+    {
+        user_sombies::find($id)->fill($request->all())->save();
+
+        return response()->json([
+            'Editado exitosamente',
+        ]);
+    }
 }
