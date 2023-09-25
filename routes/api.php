@@ -25,4 +25,6 @@ Route::get("get_user",[UserSombiesController::class,"getAll"])->name("api-getAll
 Route::put('saveUser', [UserSombiesController::class, 'saveZom'])->name('api-saveZom');
 //API-Editar
 Route::post('/editApi/{id}', [UserSombiesController::class, 'editUserApi'])->name('api-editUser');
+//API-Para eliminar estudiante
+Route::delete('/delateApi/{id}', [UserSombiesController::class,'destroyUser'])->name('api-destroyUser');
 

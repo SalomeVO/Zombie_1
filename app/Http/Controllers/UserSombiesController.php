@@ -109,4 +109,13 @@ class UserSombiesController extends Controller
             'Editado exitosamente',
         ]);
     }
+
+    //api-para eliminar usuario
+    public function destroyUser($id)
+    {
+        user_sombies::destroy($id);
+        return response()->json([
+            'Eliminado exitosamente',
+        ]);
+    }
 }
