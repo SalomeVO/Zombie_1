@@ -85,4 +85,11 @@ class UserSombiesController extends Controller
 
         return redirect('/home')->with('usuarioEliminado', 'Eliminado');
     }
+
+    //api-visualizar tabla
+    public function getAll()
+    {
+        $user =user_sombies::all();
+        return $user;
+    }
 }
