@@ -22,7 +22,7 @@
                 <form action=" {{ route('zombie.saveZom') }}" method="POST" enctype="multipart/form-data" >
                     @csrf
 
-                    <div class=" card-header text-center" style="background-color: #2A738C">
+                    <div class=" card-header text-center" style="background-color: #25A24B">
                         <h2 style="color: #FEFBE7"><i class="fas fa-user-plus"> </i> Registrar</h2>
                     </div>
 
@@ -49,12 +49,12 @@
                         <div class="row">
                             <div class="row form-group">
                                 <div class="col-md-5 offset-1">
-                                    <button id="Guardado" type="submit" class="btn btn-outline-info col-md-12" onclick="save()">
+                                    <button id="Guardado" type="submit" class="btn btn-outline-success col-md-12" onclick="save()">
                                         <i class="fas fa-save fa-2x"></i>
                                     </button>
                                 </div>
                                 <div class="col-md-5">
-                                    <a class="btn btn-outline-danger btn-xs col-md-12" href="{{ url('/') }}">
+                                    <a class="btn btn-outline-danger btn-xs col-md-12" href="{{ url('/home') }}">
                                         <i class="fas fa-times-circle fa-2x"></i>
                             </a>
                         </div>

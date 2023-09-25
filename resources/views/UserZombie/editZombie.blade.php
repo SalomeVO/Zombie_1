@@ -66,7 +66,7 @@
                                     </button>
                                 </div>
                                 <div class="col-md-5">
-                                    <a class="btn btn-outline-danger btn-xs col-md-12" href="{{ url('/') }}">
+                                    <a class="btn btn-outline-danger btn-xs col-md-12" href="{{ url('/home') }}">
                                         <i class="fas fa-times-circle fa-2x"></i>
                                     </a>
                                 </div>

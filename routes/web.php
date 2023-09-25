@@ -28,3 +28,5 @@ Route::post('/saveUser', [UserSombiesController::class, 'saveZom'])->name('zombi
 Route::get('/edit/{id}',  [UserSombiesController::class, 'editZom'])->name('editZom');
 //Guardar edicion
 Route::patch('/post/{id}',[UserSombiesController::class, 'updateZom'])->name('updateZom');
+//Para eliminar
+Route::delete('/delete/{id}',[UserSombiesController::class, 'destroy'])->name('deleteZom');

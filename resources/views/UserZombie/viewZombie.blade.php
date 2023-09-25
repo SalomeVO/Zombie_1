@@ -46,8 +46,12 @@
                                     <a href="{{route('editZom', $users->id)}}" class="btn btn-outline-info mb-2 me-2 m-1" style="border-radius: 20%">
                                         <i class="fas fa-pencil-alt"></i>
                                     </a>
-                                    <form>
+                                    <form action="{{route('deleteZom',$users->id)}}" id="{{$users->id}}" method="POST">
+                                        @csrf @method('DELETE')
 
+                                        <button type="button" onclick="eliminar({{$users->id}})" class="btn btn-outline-danger mb-2 mr-2 m-1">
+                                            <i class="far fa-trash-alt"></i>
+                                        </button>
                                     </form>
 
                                 </div>
@@ -91,5 +95,35 @@
             })
         </script>
     @endif
+
+    <!--Mensaje de Eliminado-->
+    @if(session('usuarioEliminado')=='Eliminado')
+        <script>
+            Swal.fire(
+                '¡Eliminado!',
+                'Se elimino exitosamente al empleado',
+                'success'
+            )
+        </script>
+    @endif
+
+    <script>
+        function eliminar(user){
+            Swal.fire({
+                title: '¿Esta seguro que desea eliminar al usuario?',
+                text: "Si presiona si se eliminara definitivamente",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Eliminar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById(user).submit()
+                }
+            })
+        }
+    </script>
 
 @endsection

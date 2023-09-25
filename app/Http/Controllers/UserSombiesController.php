@@ -74,8 +74,15 @@ class UserSombiesController extends Controller
 
     }
 
-    public function destroy(user_sombies $user_sombies)
+    public function destroy($id)
     {
-        //
+        $user= user_sombies::FindOrFail($id);
+
+        //para eliminar foto
+        if(Storage::delete('public/'.$user->image)){
+            user_sombies::destroy($id);
+        }
+
+        return redirect('/home')->with('usuarioEliminado', 'Eliminado');
     }
 }
