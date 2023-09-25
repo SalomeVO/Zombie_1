@@ -21,4 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //API-lista
 Route::get("get_user",[UserSombiesController::class,"getAll"])->name("api-getAll");
+//API-guardar utilizamos la funcion que ya teniamos de guardar
+Route::put('saveUser', [UserSombiesController::class, 'saveZom'])->name('api-saveZom');
 

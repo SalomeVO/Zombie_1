@@ -21,33 +21,40 @@ class UserSombiesController extends Controller
         return view('UserZombie.formZombie');
     }
 
+    //Esta funcion esta utilizandose tanto en la web como en la api
     public function saveZom(Request $request)
     {
-        $media = request()->except('_token');
+            $media = request()->except('_token');
 
-        $user = $this->validate($request, [
-            "name"      => "required",
-            "email"    => "required|string|email",
-            "password"    => "required",
-            "image"    => "required|image",
+            $user = $this->validate($request, [
+                "name" => "required",
+                "email" => "required|string|email",
+                "password" => "required",
+                "image" => "required",
 
-        ]);
+            ]);
 
-        //Guardar la foto
-        if($request->hasFile('image')){
-            $media['image']=$request->file("image")->store('uploads', 'public');
+            //Guardar la foto
+            if ($request->hasFile('image')) {
+                $media['image'] = $request->file("image")->store('uploads', 'public');
+            }
+
+            user_sombies::create([
+                "name" => $user["name"],
+                "points" => 0, //se inicializa con 0 el conteo
+                "email" => $user["email"],
+                "password" => $user["password"],
+                "dateZ" => now(), //para la fecha
+                "image" => $media["image"],
+            ]);
+
+        if ($request->control=='api'){
+            return response()->json([
+                'Guardado exitosamente',
+            ]);
+        }else{
+            return redirect('/home')->with('usuarioGuardado', "Guardado");
         }
-
-        user_sombies::create([
-            "name"     => $user["name"],
-            "points"   => 0, //se inicializa con 0 el conteo
-            "email"    => $user["email"],
-            "password"   => $user["password"],
-            "dateZ"   => now(), //para la fecha
-            "image"   => $media["image"],
-        ]);
-
-        return redirect('/home')->with('usuarioGuardado', "Guardado");
     }
 
     public function editZom($id)
