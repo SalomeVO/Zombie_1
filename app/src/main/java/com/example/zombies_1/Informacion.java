@@ -1,78 +1,55 @@
 package com.example.zombies_1;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
-
-//Importar clases
-import android.content.SharedPreferences;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Toast;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import java.util.List;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Informacion extends AppCompatActivity {
 
-    //Declaramos variables
-    private TextView textViewEmail;
-    private TextView textViewPassword;
-    private TextView textViewNome;
-    private TextView textViewPoints;
-    private TextView textViewFecha;
+    private RecyclerView recyclerView;
+    private UserAdapter userAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_informacion);
 
-        //Se ubica el archivo del tipo de letra
-        String ubicacion = "fuentes/zombie.TTF";
-        Typeface Tf = Typeface.createFromAsset(Informacion.this.getAssets(),ubicacion);
+        recyclerView = findViewById(R.id.recyclerViewUsers);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        //Los ID de las vista
-        textViewEmail = findViewById(R.id.textView5);
-        textViewPassword = findViewById(R.id.textView6);
-        textViewNome = findViewById(R.id.textView9);
-        textViewPoints = findViewById(R.id.textView10);
-        textViewFecha = findViewById(R.id.textView8);
+        ApiService apiService = MyApiClient.getApiService();
+        Call<List<User>> call = apiService.getUsers();
 
+        call.enqueue(new Callback<List<User>>() {
+            @Override
+            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                if (response.isSuccessful() && response.body() != null && response.body().size() > 0) {
+                    List<User> userList = response.body();
+                    userAdapter = new UserAdapter(userList);
+                    recyclerView.setAdapter(userAdapter);
+                } else {
+                    Toast.makeText(Informacion.this, "Error al obtener la lista de usuarios", Toast.LENGTH_SHORT).show();
+                }
+            }
 
-        //Cambio de fuente de letra
-        textViewEmail.setTypeface(Tf);
-        textViewPassword.setTypeface(Tf);
-        textViewNome.setTypeface(Tf);
-        textViewPoints.setTypeface(Tf);
-        textViewFecha.setTypeface(Tf);
-
-
-        // Acceder a los datos almacenados en SharedPreferences
-        SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
-        String email = sharedPreferences.getString("email", "");
-        String password = sharedPreferences.getString("password", "");
-        String name = sharedPreferences.getString("name", "");
-        int points = sharedPreferences.getInt("points", 0);
-        String registrationDate = sharedPreferences.getString("registrationDate", "");
-
-        // Mostrar los datos en los elementos de la vista
-        TextView textViewEmail = findViewById(R.id.textView5);
-        TextView textViewPassword = findViewById(R.id.textView6);
-        TextView textViewName = findViewById(R.id.textView9);
-        TextView textViewPoints = findViewById(R.id.textView10);
-        TextView textViewRegistrationDate = findViewById(R.id.textView8);
-
-        textViewEmail.setText("Correo: " + email);
-        textViewPassword.setText("Contraseña: " + password);
-        textViewName.setText("Usuario: " + name);
-        textViewPoints.setText("Punteo: " + points);
-        textViewRegistrationDate.setText("Fecha de Creación: " + registrationDate);
+            @Override
+            public void onFailure(Call<List<User>> call, Throwable t) {
+                Toast.makeText(Informacion.this, "Error al realizar la solicitud GET", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
-    //Funcion para el boton de regreso al menu de inicio
-    public void menu_usuario(View view){
-        Intent intent = null;
-        intent = new Intent(this, menu.class);
-
-        if(intent!=null){
+    public void menu_usuario(View view) {
+        Intent intent = new Intent(this, menu.class);
+        if (intent != null) {
             startActivity(intent);
         }
     }
