@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center"
@@ -62,5 +63,33 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="16dp" />
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="58dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/editar"
+            android:layout_width="169dp"
+            android:layout_height="52dp"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:background="#02D8C0C0"
+            android:scaleType="fitCenter"
+            app:srcCompat="@android:drawable/ic_menu_edit"
+            app:tint="#3F51B5" />
+
+        <ImageView
+            android:id="@+id/eliminar"
+            android:layout_width="123dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            android:background="#00DCDEDF"
+            android:scaleType="fitCenter"
+            app:srcCompat="@android:drawable/ic_menu_delete"
+            app:tint="#8C160D" />
+
+    </LinearLayout>
 
 </LinearLayout>

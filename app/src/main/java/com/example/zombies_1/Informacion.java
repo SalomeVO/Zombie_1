@@ -33,7 +33,8 @@ public class Informacion extends AppCompatActivity {
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 if (response.isSuccessful() && response.body() != null && response.body().size() > 0) {
                     List<User> userList = response.body();
-                    userAdapter = new UserAdapter(userList);
+                    userAdapter = new UserAdapter(Informacion.this, userList);
+
                     recyclerView.setAdapter(userAdapter);
                 } else {
                     Toast.makeText(Informacion.this, "Error al obtener la lista de usuarios", Toast.LENGTH_SHORT).show();
