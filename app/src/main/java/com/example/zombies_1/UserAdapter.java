@@ -2,6 +2,7 @@ package com.example.zombies_1;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,6 +54,26 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
                 deleteUser(user.getId(), position);
             }
         });
+
+        // Configura el botón de editar
+        holder.editarImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Obtén los datos del usuario seleccionado
+                int userId = user.getId();
+                String nombre = user.getName();
+                String email = user.getEmail();
+                String contraseña = user.getPassword();
+
+                // Abre la actividad de edición y pasa los datos del usuario
+                Intent intent = new Intent(context, editar.class);
+                intent.putExtra("userId", userId); // Pasa el ID del usuario
+                intent.putExtra("nombre", nombre);
+                intent.putExtra("email", email);
+                intent.putExtra("contraseña", contraseña);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -68,6 +89,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         TextView userPasswordTextView;
         TextView userDataZTextView;
         ImageView eliminarImageView; // Cambia el tipo a ImageView
+        ImageView editarImageView; // Botón para editar
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,6 +100,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             userPasswordTextView = itemView.findViewById(R.id.userPassword);
             userDataZTextView = itemView.findViewById(R.id.userDataZ);
             eliminarImageView = itemView.findViewById(R.id.eliminar); // Cambia el tipo a ImageView
+            editarImageView = itemView.findViewById(R.id.editar); // Botón para editar
         }
     }
 
@@ -103,5 +126,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
                 Toast.makeText(context, "Error al realizar la solicitud DELETE", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
+
 }

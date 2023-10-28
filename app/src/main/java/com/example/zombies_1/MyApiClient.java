@@ -4,7 +4,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MyApiClient {
-    private static final String BASE_URL = "http://www.salomesombies.store/api/";
+    private static final String BASE_URL = "http://3.133.130.232/api/";
 
     private static ApiService apiService;
 

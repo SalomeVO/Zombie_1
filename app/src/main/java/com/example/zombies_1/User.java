@@ -39,8 +39,6 @@ public class User implements Serializable, Parcelable {
         this.image = image;
     }
 
-    // Métodos getters y setters
-
     // Implementación de Parcelable
     protected User(Parcel in) {
         id = in.readInt();

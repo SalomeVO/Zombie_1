@@ -5,13 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 //Importar clases
-import android.content.SharedPreferences;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import retrofit2.Call;
 
 public class login extends AppCompatActivity {
 
@@ -40,29 +45,34 @@ public class login extends AppCompatActivity {
 
     // Función para el botón de inicio de sesión
     public void iniciarSesion(View view) {
-
-        // Obtener valores ingresados por el usuario
         String loginEmail = editTextLoginEmail.getText().toString();
         String loginPassword = editTextLoginPassword.getText().toString();
 
-        // Recuperar la información almacenada en SharedPreferences
-        SharedPreferences sharedPreferences = getSharedPreferences("UserData", MODE_PRIVATE);
-        String savedEmail = sharedPreferences.getString("email", "");
-        String savedPassword = sharedPreferences.getString("password", "");
+        ApiService apiService = MyApiClient.getApiService();
 
-        // Verificar la autenticación
-        if (loginEmail.equals(savedEmail) && loginPassword.equals(savedPassword)) {
-            // Inicio de sesión exitoso
-            Toast.makeText(login.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+        Call<User> call = apiService.loginUser(loginEmail, loginPassword);
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (response.isSuccessful()) {
+                    User user = response.body();
+                    Toast.makeText(login.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
 
-            // Redirigir al usuario a la vista de menú
-            Intent intent = new Intent(login.this, menu.class);
-            startActivity(intent);
-        } else {
-            // Inicio de sesión fallido
-            Toast.makeText(login.this, "Inicio de sesión fallido", Toast.LENGTH_SHORT).show();
-        }
+                    Intent intent = new Intent(login.this, menu.class);
+                    startActivity(intent);
+                } else {
+
+                    Log.e("Login", "Fallo inicio de sesión: " + response.message());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                Log.e("Login", "Error en la solicitud: " + t.getMessage());
+            }
+        });
     }
+
 
     //Funcion para el boton de regreso al menu de inicio
     public void regresar_inico(View view){
