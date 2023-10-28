@@ -8,6 +8,9 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 import java.util.List;
+import retrofit2.http.Body;
+import retrofit2.http.PUT;
+import retrofit2.http.Query;
 
 public interface ApiService {
     @GET("get_user")
@@ -31,6 +34,7 @@ public interface ApiService {
             @Field("email") String email,
             @Field("password") String contraseña
     );
-
+    @PUT("saveUser") // Ruta para registrar un usuario con el método PUT
+    Call<Void> registrarUsuario(@Body User user, @Query("control") String control);
 
 }
